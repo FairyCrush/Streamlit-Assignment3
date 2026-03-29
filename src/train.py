@@ -14,13 +14,9 @@ def train_model(X_train, y_train, preprocessor):
     pipeline.fit(X_train, y_train)
     os.makedirs("models", exist_ok=True)
     
-    model_path = os.path.join("models", "model.pkl")
-    preprocessor_path = os.path.join("models", "preprocessor.pkl")
+    pipeline_path = os.path.join("models", "pipeline.pkl")
     
-    joblib.dump(pipeline, model_path)
-    joblib.dump(preprocessor, preprocessor_path)
-    
-    print("Model Directory: ", model_path)
-    print("Preprocessor Directory: ", preprocessor_path)
+    joblib.dump(pipeline, pipeline_path)
+    print("Pipeline Saved To: ", pipeline_path)
     
     return pipeline
